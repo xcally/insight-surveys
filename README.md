@@ -7,6 +7,3 @@ Fork of http://mwasiluk.github.io/angular-surveys
 You can install this package through `Bower` :
 
     bower install angular-surveys --save
-
-## Wiki
-[Directives](https://github.com/b-my/angular-surveys/wiki/Directives)
