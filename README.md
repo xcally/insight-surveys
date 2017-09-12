@@ -1,4 +1,4 @@
-# angular-surveys
+# insight-surveys
 Angular.js survey / form builder inspired by Google Forms
 Fork of http://mwasiluk.github.io/angular-surveys
 
@@ -6,4 +6,4 @@ Fork of http://mwasiluk.github.io/angular-surveys
 
 You can install this package through `Bower` :
 
-    bower install angular-surveys --save
+    bower install insight-surveys --save
