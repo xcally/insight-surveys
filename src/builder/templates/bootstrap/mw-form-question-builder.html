@@ -25,7 +25,7 @@
                     <mw-label label-for="question-{{select.key}}-{{ctrl.id}}" label-class="col-sm-2 control-label"  label-key="{{select.label}}"></mw-label>
                     <div class="col-sm-10 form-inline">
                         <select ng-attr-id="question-{{opt.key}}-{{ctrl.id}}" ng-options="opt.label for opt in select.options track by opt.key" ng-model="ctrl.question[select.key]"  class="form-control" ng-disabled="ctrl.readOnly" ng-required="select.required"></select>
-       
+
                     </div>
                 </div>
             </div>
@@ -81,6 +81,13 @@
                     </div>
                     <div ng-switch-when="url" class="form-inline">
                         <input class="form-control" type="url" disabled>
+                    </div>
+                    <div ng-switch-when="star" class="form-inline">
+                        <div class="range-config form-inline">
+                            <span translate="mwForm.question.star.no">Number of stars</span>
+                            <input class="form-control" type="number" ng-model="ctrl.question.noStars"
+                                min="3" max="10" step="1" required ng-readonly="ctrl.readOnly" ng-init="ctrl.question.noStars = 5"/>
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-12" ng-if="ctrl.question.type=='grid'">
@@ -250,6 +257,11 @@
 
                     </div>
 
+                </div>
+                <div ng-switch-when="star" class="stars">
+                    <span ng-repeat="n in [].constructor(ctrl.question.noStars) track by $index">
+                        <i class="fa fa-star star"></i>
+                    </span>
                 </div>
             </div>
 

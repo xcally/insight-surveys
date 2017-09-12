@@ -103,6 +103,13 @@
                     <div ng-switch-when="url" class="form-inline">
                         <input class="form-control" type="url" disabled>
                     </div>
+                    <div ng-switch-when="star" class="form-inline">
+                        <div class="range-config form-inline">
+                            <span translate="mwForm.question.star.no">Number of stars</span>
+                            <input class="form-control" type="number" ng-model="ctrl.question.noStars"
+                                min="3" max="10" step="1" required ng-readonly="ctrl.readOnly" ng-init="ctrl.question.noStars = 5"/>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-sm-12" ng-if="ctrl.question.type=='grid'">
                     <mw-question-grid-builder question="ctrl.question" read-only="ctrl.readOnly"></mw-question-grid-builder>
@@ -311,9 +318,12 @@
                             </md-input-container>
                             <span>{{ctrl.question.unit}} <span translate="mwForm.question.division.fromRequiredLabel">z wymaganych</span> <strong>{{ctrl.question.quantity}}</strong> {{ctrl.question.unit}}</span>
                         </div>
-
                     </div>
-
+                </div>
+                <div ng-switch-when="star" class="stars">
+                    <span ng-repeat="n in [].constructor(ctrl.question.noStars) track by $index">
+                        <i class="fa fa-star star"></i>
+                    </span>
                 </div>
             </div>
 

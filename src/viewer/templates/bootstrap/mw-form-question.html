@@ -126,6 +126,26 @@
         <div ng-switch-when="url" class="form-inline">
             <input class="form-control" type="url" ng-model="ctrl.questionResponse.answer" ng-required="ctrl.question.required" ng-readonly="ctrl.readOnly">
         </div>
+        <div ng-switch-when="star" class="stars">
+            <input
+                ng-repeat-start="n in [].constructor(ctrl.question.noStars) track by $index"
+                type="radio" id="{{'star' + (ctrl.question.noStars - $index)}}"
+                ng-model="ctrl.questionResponse.answer"
+                ng-value="{{ctrl.question.noStars - $index}}"
+                ng-required="ctrl.question.required"
+            />
+            <label
+                for="{{'star' + (ctrl.question.noStars - $index)}}"
+                ng-show="!ctrl.readOnly"
+                class="star"
+            >
+                <i class="fa fa-star"></i>
+            </label>
+            <span ng-show="ctrl.readOnly" class="star">
+                <i class="fa fa-star"></i>
+            </span>
+            <span ng-repeat-end class="stars-end" />
+        </div>
 
     </div>
 

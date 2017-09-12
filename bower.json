@@ -1,8 +1,8 @@
 {
-  "name": "angular-surveys",
-  "homepage": "https://github.com/mwasiluk/angular-surveys",
+  "name": "insight-surveys",
+  "homepage": "https://github.com/b-my/insight-surveys",
   "authors": [
-    "Michał Wasiluk"
+    "Ben Murphy"
   ],
   "description": "Angular survey/form builder and viewer inspired by Google Forms",
   "main": "",
@@ -40,5 +40,8 @@
     "angular-translate-loader-static-files": "2.x",
     "angular-mocks": "~1.4.8",
     "angular-material": "^1.0.7"
+  },
+  "resolutions": {
+    "angular": "1.6.6"
   }
 }

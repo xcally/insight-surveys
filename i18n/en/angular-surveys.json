@@ -91,9 +91,10 @@
                 },
                 "url":{
                     "name": "URL"
+                },
+                "star":{
+                    "name": "Star Rating"
                 }
-
-
             },
             "text": "Question text",
             "type": "Question type",
@@ -144,8 +145,10 @@
             "buttons":{
                 "addOption":"Click to add option",
                 "addOther":"Add 'Other'"
+            },
+            "star": {
+                "no": "Number of stars"
             }
-
         },
         "image":{
             "selectImageButton": "Select image",

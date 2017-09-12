@@ -88,6 +88,41 @@
         border-color: red;
         outline-color: red;
     }
+
+    .stars {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        input {
+            display: none;
+        }
+
+        .star {
+            cursor: pointer;
+            font-size: 20px;
+            padding-left: 5px;
+            padding-right: 5px;
+            color: #ddd;
+        }
+
+        input:checked ~ label,
+        input:not(:checked) + label:hover,
+        input:not(:checked) + label:hover ~ label {
+            color: #FFD700;
+        }
+
+        input:checked + label:hover,
+        input:checked ~ label:hover,
+        input:checked ~ label:hover ~ label {
+            color: #FFED85;
+        }
+
+        .stars-end {
+            display: none;
+        }
+    }
+
+
 }
 
 

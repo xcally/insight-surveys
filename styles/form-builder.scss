@@ -530,6 +530,15 @@
                         }
                     }
                 }
+
+                .stars {
+                    padding-top: 5px;
+                    .star {
+                        margin-right: 10px;
+                        font-size: 20px;
+                        color: #ddd;
+                    }
+                }
             }
 
         }
