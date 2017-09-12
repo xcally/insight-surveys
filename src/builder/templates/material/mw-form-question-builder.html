@@ -107,7 +107,7 @@
                         <div class="range-config form-inline">
                             <span translate="mwForm.question.star.no">Number of stars</span>
                             <input class="form-control" type="number" ng-model="ctrl.question.noStars"
-                                min="3" max="10" step="1" required ng-readonly="ctrl.readOnly" ng-init="ctrl.question.noStars = 5"/>
+                                min="3" max="10" step="1" required ng-readonly="ctrl.readOnly" ng-init="ctrl.question.noStars = ctrl.question.noStars || 5"/>
                         </div>
                     </div>
                 </div>
