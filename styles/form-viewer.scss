@@ -98,11 +98,15 @@
         }
 
         .star {
+            transition: color 500ms ease;
             cursor: pointer;
-            font-size: 20px;
-            padding-left: 5px;
-            padding-right: 5px;
+            font-size: 24px;
+            padding-left: 8px;
+            padding-right: 8px;
             color: #ddd;
+        }
+        .star:last-of-type {
+            padding-left: 0;
         }
 
         input:checked ~ label,
