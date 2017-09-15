@@ -1230,9 +1230,6 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', ["$rootScope", functi
 
                     }
                 }
-                setTimeout(function() {
-                    $scope.$apply(updateQuestionNumbers);
-                }, 0);
             };
 
 
@@ -1275,24 +1272,6 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', ["$rootScope", functi
                     ctrl.formData.pages[i].number = i+1;
                 }
                 ctrl.updatePageFlow();
-            }
-            $scope.$on('mwForm.questionUpdate', function() {
-                setTimeout(function() {
-                    $scope.$apply(updateQuestionNumbers);
-                }, 0);
-            });
-
-            function updateQuestionNumbers() {
-                var questionNumber = 1;
-                ctrl.formData.pages.forEach(function(page) {
-                    if (typeof page.elements !== 'undefined') {
-                        page.elements.forEach(function(element) {
-                            if (element.type == 'question') {
-                                element.question.number = questionNumber++;
-                            }
-                        });
-                    }
-                });
             }
 
             ctrl.addPageAfter=function(page){
