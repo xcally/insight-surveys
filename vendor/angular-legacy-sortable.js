@@ -1,17 +1,17 @@
+/* eslint-disable */
 /**
  * @author RubaXa <trash@rubaxa.org>
  * @licence MIT
- * https://github.com/SortableJS/angular-legacy-sortablejs
  */
 (function (factory) {
 	'use strict';
 
 	if (typeof define === 'function' && define.amd) {
-		define(['angular', './Sortable'], factory);
+		define(['angular', 'sortablejs'], factory);
 	}
 	else if (typeof require === 'function' && typeof exports === 'object' && typeof module === 'object') {
 		require('angular');
-		factory(angular, require('./Sortable'));
+		factory(angular, require('sortablejs'));
 		module.exports = 'ng-sortable';
 	}
 	else if (window.angular && window.Sortable) {
@@ -39,7 +39,7 @@
 				nextSibling;
 
 			function getNgRepeatExpression(node) {
-				return node.getAttribute('ng-repeat') || node.getAttribute('data-ng-repeat') || node.getAttribute('x-ng-repeat');
+				return node.getAttribute('ng-repeat') || node.getAttribute('data-ng-repeat') || node.getAttribute('x-ng-repeat') || node.getAttribute('dir-paginate');
 			}
 
 			// Export
@@ -67,6 +67,7 @@
 					var rhs = match[2];
 
 					return function postLink(scope, $el) {
+						scope.ngSortable.isAngular = true;
 						var itemsExpr = $parse(rhs);
 						var getSource = function getSource() {
 							return itemsExpr(scope.$parent) || [];
@@ -78,7 +79,7 @@
 							watchers = [],
 							offDestroy,
 							sortable
-						;
+							;
 
 						el[expando] = getSource;
 
@@ -116,7 +117,10 @@
 								if (evt.clone) {
 									removed = angular.copy(removed);
 									prevItems.splice(Sortable.utils.index(evt.clone, sortable.options.draggable), 0, prevItems.splice(oldIndex, 1)[0]);
-									evt.from.removeChild(evt.clone);
+
+									// if (evt.from.contains(evt.clone)) {
+									// 	evt.from.removeChild(evt.clone);
+									// }
 								}
 								else {
 									prevItems.splice(oldIndex, 1);
@@ -124,14 +128,14 @@
 
 								items.splice(newIndex, 0, removed);
 
-								evt.from.insertBefore(evt.item, nextSibling); // revert element
+								// evt.from.insertBefore(evt.item, nextSibling); // revert element
 							}
 							else {
 								items.splice(newIndex, 0, items.splice(oldIndex, 1)[0]);
 
 								// move ng-repeat comment node to right position
 								if (nextSibling.nodeType === Node.COMMENT_NODE) {
-									evt.from.insertBefore(nextSibling, evt.item.nextSibling);
+									// evt.from.insertBefore(nextSibling, evt.item.nextSibling);
 								}
 							}
 
@@ -170,6 +174,8 @@
 								scope.$apply();
 							},
 							onAdd: function (/**Event*/evt) {
+
+								evt.clone = false;
 								_sync(evt);
 								_emitEvent(evt, removed);
 								scope.$apply();
