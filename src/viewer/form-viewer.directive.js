@@ -18,7 +18,7 @@ angular.module('mwFormViewer').directive('mwFormViewer', function ($rootScope) {
         templateUrl: 'mw-form-viewer.html',
         controllerAs: 'ctrl',
         bindToController: true,
-        controller: function($timeout, $interpolate){
+        controller: function($scope, $timeout, $interpolate){
             var ctrl = this;
             // Put initialization logic inside `$onInit()`
             // to make sure bindings have been initialized.
