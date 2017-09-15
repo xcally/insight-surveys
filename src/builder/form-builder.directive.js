@@ -42,7 +42,9 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', function ($rootScope)
 
                     }
                 }
-                updateQuestionNumbers();
+                setTimeout(function() {
+                    $scope.$apply(updateQuestionNumbers);
+                }, 0);
             };
 
 
@@ -87,7 +89,9 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', function ($rootScope)
                 ctrl.updatePageFlow();
             }
             $scope.$on('mwForm.questionUpdate', function() {
-                updateQuestionNumbers();
+                setTimeout(function() {
+                    $scope.$apply(updateQuestionNumbers);
+                }, 0);
             });
 
             function updateQuestionNumbers() {

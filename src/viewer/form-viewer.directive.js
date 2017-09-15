@@ -33,7 +33,6 @@ angular.module('mwFormViewer').directive('mwFormViewer', function ($rootScope) {
                 ctrl.submitStatus='NOT_SUBMITTED';
                 ctrl.formSubmitted=false;
 
-                getQuestionNumbers();
                 sortPagesByNumber();
                 ctrl.pageIdToPage={};
                 ctrl.formData.pages.forEach(function(page){
@@ -74,6 +73,10 @@ angular.module('mwFormViewer').directive('mwFormViewer', function ($rootScope) {
 
                     }
                 }
+
+                setTimeout(function() {
+                    $scope.$apply(getQuestionNumbers);
+                }, 0);
             };
 
             ctrl.submitForm = function(){
