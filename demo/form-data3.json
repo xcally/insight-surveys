@@ -1,0 +1,259 @@
+{
+  "name": "Questionnaire Name",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis nunc quis nisi lacinia commodo quis in urna. Maecenas dictum urna eget fringilla vehicula.",
+  "pages": [
+    {
+      "id": "16062797c1e9a92a9dbaae5e9ce17d6c",
+      "number": 1,
+      "name": "Page One",
+      "description": null,
+      "pageFlow": {
+        "nextPage": true,
+        "label": "mwForm.pageFlow.goToNextPage"
+      },
+      "elements": [
+        {
+          "id": "b0c2a905c103455f285fd68cdf1100ff",
+          "orderNo": 1,
+          "type": "question",
+          "question": {
+            "id": "4c39312a94e066a856a195753832de05",
+            "text": "Describe your favorite food",
+            "type": "textarea",
+            "required": true,
+            "pageFlowModifier": false
+          }
+        },
+        {
+          "id": "3d6c0026132b6aa22f3da1922862b33e",
+          "orderNo": 2,
+          "type": "question",
+          "question": {
+            "id": "17079f62650f74b378b1436aefbba299",
+            "text": "What is your name?",
+            "type": "text",
+            "required": true,
+            "pageFlowModifier": false
+          }
+        },
+        {
+          "id": "2ce584fc08829f270a55e2b957b072c1",
+          "orderNo": 3,
+          "type": "question",
+          "question": {
+            "id": "be2f2711c2c5f869fa636fde360a9455",
+            "text": "Do you like your computer?",
+            "type": "radio",
+            "required": true,
+            "offeredAnswers": [
+              {
+                "id": "589eabfe8af7673375f137eca83f194d",
+                "orderNo": 2,
+                "value": "No",
+                "pageFlow": {
+                  "nextPage": true,
+                  "label": "mwForm.pageFlow.goToNextPage"
+                }
+              },
+              {
+                "id": "e2b88bc85951622b3b59901a77678255",
+                "orderNo": 2,
+                "value": "Yes",
+                "pageFlow": {
+                  "nextPage": true,
+                  "label": "mwForm.pageFlow.goToNextPage"
+                }
+              },
+              {
+                "id": "3f9e68164c5c2778a118f638a89e6d28",
+                "orderNo": 3,
+                "value": "Maybe",
+                "pageFlow": {
+                  "nextPage": true,
+                  "label": "mwForm.pageFlow.goToNextPage"
+                }
+              }
+            ],
+            "otherAnswer": true
+          }
+        },
+        {
+          "id": "e57dcdafc7b6a4f49d15869374ad0a2e",
+          "orderNo": 4,
+          "type": "question",
+          "question": {
+            "id": "719ef4f8afc21bf07ecfcd81b077d7b0",
+            "text": "What animal would you keep as a pet?",
+            "type": "checkbox",
+            "required": true,
+            "offeredAnswers": [
+              {
+                "id": "451cfffbb07ab6f201a08e3be739d534",
+                "orderNo": 1,
+                "value": "Cat",
+                "pageFlow": {
+                  "nextPage": true,
+                  "label": "mwForm.pageFlow.goToNextPage"
+                }
+              },
+              {
+                "id": "992d824c43e4032b297a959bb2b0e925",
+                "orderNo": 2,
+                "value": "Dog",
+                "pageFlow": {
+                  "nextPage": true,
+                  "label": "mwForm.pageFlow.goToNextPage"
+                }
+              },
+              {
+                "id": "c2a18d282713ea602f31073626f15ed5",
+                "orderNo": 3,
+                "value": "Cow",
+                "pageFlow": {
+                  "nextPage": true,
+                  "label": "mwForm.pageFlow.goToNextPage"
+                }
+              }
+            ],
+            "pageFlowModifier": false,
+            "otherAnswer": true
+          }
+        },
+        {
+          "id": "e0a45a061f022e7785e2e600158904b3",
+          "orderNo": 5,
+          "type": "question",
+          "question": {
+            "id": "b6f584afe412f506eb56e922d84322e5",
+            "text": "What is your favorite time of day?",
+            "type": "grid",
+            "required": true,
+            "grid": {
+              "cellInputType": "radio",
+              "rows": [
+                {
+                  "id": "36683a4385337df9ab6b580207272b5b",
+                  "orderNo": 1,
+                  "label": "Weekend"
+                },
+                {
+                  "id": "a5b1523d67c878e149d86f0ffe4bbc1b",
+                  "orderNo": 2,
+                  "label": "Weekday"
+                }
+              ],
+              "cols": [
+                {
+                  "id": "223bbfa4fecc0900f21c8a79ead634a2",
+                  "orderNo": 1,
+                  "label": "Morning"
+                },
+                {
+                  "id": "1f1b13a99fa798fc5deedb1238e0d92c",
+                  "orderNo": 2,
+                  "label": "Night"
+                },
+                {
+                  "id": "5610aefefab51940924a723ccbdb1fd1",
+                  "orderNo": 3,
+                  "label": "Dawn"
+                },
+                {
+                  "id": "8dff904d70365a04c363fe494e9e8946",
+                  "orderNo": 4,
+                  "label": "Dusk"
+                },
+                {
+                  "id": "09fa9dd1bafca033309c7eb87465754d",
+                  "orderNo": 5,
+                  "label": "Midnight"
+                },
+                {
+                  "id": "5199c048bccac86d171e6875ab673ec7",
+                  "orderNo": 6,
+                  "label": "Afternoon"
+                }
+              ]
+            },
+            "pageFlowModifier": false
+          }
+        },
+        {
+          "id": "7571e994d212eb83cfb5f250ce6333b7",
+          "orderNo": 6,
+          "type": "question",
+          "question": {
+            "id": "6acc7fae3c9a181dd7fb2c3b9e29f27a",
+            "text": "How many stars?",
+            "type": "star",
+            "required": true,
+            "noStars": 10,
+            "pageFlowModifier": false
+          }
+        },
+        {
+          "id": "1f21b81c070c13d350ed2237b397172a",
+          "orderNo": 7,
+          "type": "question",
+          "question": {
+            "id": "a333d8d16ee02341e72eb94629abfd98",
+            "text": "Enter a number 0-100",
+            "type": "range",
+            "required": true,
+            "pageFlowModifier": false,
+            "min": 0,
+            "max": 100
+          }
+        },
+        {
+          "id": "f24eae2eee292456ad41c0ee6d5322a5",
+          "orderNo": 8,
+          "type": "paragraph",
+          "paragraph": {
+            "id": "725240f307c6091116b698c3ec97aa2b",
+            "html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis nunc quis nisi lacinia commodo quis in urna. Maecenas dictum urna eget fringilla vehicula. Morbi congue id dolor vel volutpat. Aenean suscipit lectus velit, eget eleifend massa pretium quis. Cras quis pharetra nulla. Proin porttitor fermentum est, eu aliquam velit porttitor quis. Sed non bibendum odio, a pellentesque neque. Donec eu lectus vitae nisl ornare aliquet. Donec ornare felis non elit malesuada tincidunt. Praesent ipsum augue, venenatis in auctor vel, aliquet et augue. Ut efficitur elit eu elit fringilla, imperdiet suscipit libero consequat. Ut in metus libero. Nullam vestibulum, augue nec varius elementum, erat orci iaculis neque, quis varius ante leo eu lectus. Vestibulum eget ante enim. Nulla lobortis, felis sed mattis posuere, urna leo pharetra mi, ut elementum augue erat sed odio. In mattis, orci nec maximus fermentum, tellus lacus porta purus, sed scelerisque massa justo id nunc."
+          }
+        },
+        {
+          "id": "791597697a9bfda41264a79dfc3865df",
+          "orderNo": 9,
+          "type": "image",
+          "image": {
+            "id": "22c56ce862e63ce07f74ddbe50fd446f",
+            "align": "left",
+            "src": "lena.gif"
+          }
+        }
+      ],
+      "namedPage": true,
+      "isFirst": true,
+      "isLast": false
+    },
+    {
+      "id": "dfbf658e6f99701bed4a129a2b36b6e0",
+      "number": 2,
+      "name": "Page Two",
+      "description": null,
+      "pageFlow": {
+        "nextPage": true,
+        "label": "mwForm.pageFlow.goToNextPage"
+      },
+      "elements": [
+        {
+          "id": "c7e90801086e10fbc8b9536d1c5f69b3",
+          "orderNo": 1,
+          "type": "question",
+          "question": {
+            "id": "56cb0436b3287bf349251e8d93c23d45",
+            "text": "Another question on a different page",
+            "type": "text",
+            "required": true,
+            "pageFlowModifier": false
+          }
+        }
+      ],
+      "namedPage": true
+    }
+  ],
+  "confirmationMessage": "Hey you did it"
+}

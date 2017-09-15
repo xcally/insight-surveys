@@ -101,8 +101,21 @@
           }
         },
         {
-          "id": "b0c2a905c103455f285fd68cdf1100ff",
+          "id": "7571e994d212eb83cfb5f250ce6333b7",
           "orderNo": 8,
+          "type": "question",
+          "question": {
+            "id": "6acc7fae3c9a181dd7fb2c3b9e29f27a",
+            "text": "How many stars?",
+            "type": "star",
+            "required": true,
+            "noStars": 5,
+            "pageFlowModifier": false
+          }
+        },
+        {
+          "id": "b0c2a905c103455f285fd68cdf1100ff",
+          "orderNo": 9,
           "type": "question",
           "question": {
             "id": "4c39312a94e066a856a195753832de05",
@@ -114,7 +127,7 @@
         },
         {
           "id": "e0a45a061f022e7785e2e600158904b3",
-          "orderNo": 9,
+          "orderNo": 10,
           "type": "question",
           "question": {
             "id": "b6f584afe412f506eb56e922d84322e5",
@@ -153,7 +166,7 @@
         },
         {
           "id": "617c8334bebadd2ccc1397185838aba3",
-          "orderNo": 10,
+          "orderNo": 11,
           "type": "question",
           "question": {
             "id": "3643ebd79db7a48115058b5ce75a74c8",
@@ -177,7 +190,7 @@
         },
         {
           "id": "2ce584fc08829f270a55e2b957b072c1",
-          "orderNo": 11,
+          "orderNo": 12,
           "type": "question",
           "question": {
             "id": "be2f2711c2c5f869fa636fde360a9455",
@@ -208,7 +221,7 @@
         },
         {
           "id": "e57dcdafc7b6a4f49d15869374ad0a2e",
-          "orderNo": 12,
+          "orderNo": 13,
           "type": "question",
           "question": {
             "id": "719ef4f8afc21bf07ecfcd81b077d7b0",
@@ -250,7 +263,7 @@
         },
         {
           "id": "f24eae2eee292456ad41c0ee6d5322a5",
-          "orderNo": 13,
+          "orderNo": 14,
           "type": "paragraph",
           "paragraph": {
             "id": "725240f307c6091116b698c3ec97aa2b",
@@ -259,7 +272,7 @@
         },
         {
           "id": "791597697a9bfda41264a79dfc3865df",
-          "orderNo": 14,
+          "orderNo": 15,
           "type": "image",
           "image": {
             "id": "22c56ce862e63ce07f74ddbe50fd446f",
@@ -269,7 +282,7 @@
         },
         {
           "id": "bc898f0149fe91c7afb5dabbb7c41a4b",
-          "orderNo": 15,
+          "orderNo": 16,
           "type": "question",
           "question": {
             "id": "bcaf100bc048236e2939fe71cae38fb3",
@@ -295,7 +308,7 @@
         },
         {
           "id": "71bf4665af4980cc5ee093ec9f561ed1",
-          "orderNo": 16,
+          "orderNo": 17,
           "type": "question",
           "question": {
             "id": "4ec4b0f4267b38ac4a15c0fde0121a57",

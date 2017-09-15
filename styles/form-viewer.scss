@@ -1,23 +1,60 @@
-.mw-form-viewer{
-    background-color: #ffffff;
-    padding: 15px;
-    .mw-form-page{
-        margin: 15px 0;
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";
 
-        .mw-page-title{
-            margin-top: 30px;
-            margin-bottom: 25px;
+.mw-form-viewer {
+    font-size: 16px;
+    line-height: 24px;
+    background-color: #ffffff;
+    padding: 12px 12px 48px 12px;
+
+    h1 {
+        font-size: 26px;
+        line-height: 48px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    h2  {
+        font-size: 16px;
+        line-height: 24px;
+        margin-top: 0px;
+        margin-bottom: 24px;
+    }
+
+    h3 {
+        font-size: 16px;
+        line-height: 24px;
+        margin: 0;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    input, select, textarea {
+        font-size: 16px;
+    }
+
+    .radio, .checkbox {
+        margin: 0 0 12px 0;
+        label {
+            padding-left: 24px;
         }
+        input[type="text"] {
+            margin: 12px 0 0 0;
+        }
+    }
+
+    .mw-form-page{
+        margin: 24px 0;
 
         .mw-page-element{
-            margin-bottom: 30px;
+            margin-bottom: 48px;
 
             .mw-question-text{
-                margin-bottom: 7px;
+                margin-bottom: 12px;
                 font-weight: bold;
             }
         }
-
 
         .mw-priority-list{
             .beingDragged {
@@ -63,21 +100,20 @@
         }
 
         .mw-range{
-            input{
-                display: inline-block;
-                width: auto;
+            display: -webkit-flex;
+            display: flex;
+            input[type="range"] {
+                max-width: 400px;
             }
-
-            .mw-range-value-label{
-                display: inline-block;
-                margin-left: 10px;
-                font-size: 22px;
+            .mw-range-value-label {
+                margin-left: 12px;
+                font-size: 24px;
             }
         }
     }
 
     .mw-form-description{
-        margin-bottom: 25px;
+        margin-bottom: 24px;
     }
 
     .no-drag{
@@ -89,20 +125,42 @@
         outline-color: red;
     }
 
+    .question-grid {
+        .question-grid-row {
+            margin-bottom: 24px;
+        }
+        .question-grid-row:last-child {
+            margin-bottom: 0;
+        }
+        .question-grid-cell {
+            padding: 6px;
+            margin-bottom: 3px;
+            background-color: #f9f9f9;
+            label {
+                margin-left: 6px;
+                font-weight: normal;
+            }
+        }
+        h3.question-grid-cell {
+            background-color: transparent;
+            margin: 0;
+        }
+    }
+
     .stars {
+        display: -webkit-flex;
         display: flex;
         flex-direction: row-reverse;
-        justify-content: flex-end;
+        -webkit-flex-direction: row-reverse;
+        justify-content: space-around;
+        -webkit-justify-content: space-around;
         input {
             display: none;
         }
 
         .star {
-            transition: color 500ms ease;
             cursor: pointer;
             font-size: 24px;
-            padding-left: 8px;
-            padding-right: 8px;
             color: #ddd;
         }
         .star:last-of-type {
@@ -115,18 +173,68 @@
             color: #FFD700;
         }
 
-        input:checked + label:hover,
-        input:checked ~ label:hover,
-        input:checked ~ label:hover ~ label {
-            color: #FFED85;
-        }
-
         .stars-end {
             display: none;
         }
     }
-
-
 }
 
+@media (min-width: $screen-md-min) {
+    .mw-form-viewer {
+        padding: 24px 24px 24px;
+
+        h1 {
+            font-size: 42px;
+            line-height: 48px;
+            margin: 0 0 24px 0;
+        }
+
+        h2 {
+            font-size: 26px;
+            line-height: 48px;
+            margin: 0 0 24px 0;
+        }
+
+        .radio, .checkbox {
+            input[type="text"] {
+                margin: 0 0 0 12px;
+            }
+        }
+
+        .question-grid {
+            display: table;
+            border-collapse: collapse;
+            width: 100%;
+            .question-grid-row {
+                display: table-row;
+                margin:0;
+            }
+            .question-grid-block {
+                border-top: 1px solid #ddd;
+            }
+            .question-grid-block:nth-child(2n) {
+                background-color: #f9f9f9;
+            }
+            .question-grid-cell {
+                font-weight: normal;
+                display: table-cell;
+                background-color: transparent;
+                padding: 6px;
+                margin: 0;
+            }
+            .question-grid-heading {
+                font-weight: bold;
+            }
+        }
+
+        .stars {
+            justify-content: flex-end;
+            -webkit-justify-content: flex-end;
+            .star {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+        }
+    }
+}
 

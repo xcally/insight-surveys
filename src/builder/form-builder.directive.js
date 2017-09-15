@@ -15,7 +15,7 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', function ($rootScope)
         templateUrl: 'mw-form-builder.html',
         controllerAs: 'ctrl',
         bindToController: true,
-        controller: function(mwFormUuid, MW_QUESTION_TYPES, mwFormBuilderOptions){
+        controller: function($scope, mwFormUuid, MW_QUESTION_TYPES, mwFormBuilderOptions){
             var ctrl = this;
             // Put initialization logic inside `$onInit()`
             // to make sure bindings have been initialized.
@@ -42,14 +42,15 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', function ($rootScope)
 
                     }
                 }
+                updateQuestionNumbers();
             };
-            
+
 
             ctrl.numberOfPages=function(){
-                return Math.ceil(ctrl.formData.pages.length/ctrl.options.pageSize);                
+                return Math.ceil(ctrl.formData.pages.length/ctrl.options.pageSize);
             };
             ctrl.lastPage = function(){
-               ctrl.currentPage = Math.ceil(ctrl.formData.pages.length/ctrl.options.pageSize - 1); 
+               ctrl.currentPage = Math.ceil(ctrl.formData.pages.length/ctrl.options.pageSize - 1);
             };
             ctrl.addPage = function(){
                 ctrl.formData.pages.push(createEmptyPage(ctrl.formData.pages.length+1));
@@ -58,10 +59,10 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', function ($rootScope)
             };
             ctrl.onChangePageSize = function(){
                 if(ctrl.currentPage > Math.ceil(ctrl.formData.pages.length/ctrl.options.pageSize - 1)){
-                   ctrl.currentPage = Math.ceil(ctrl.formData.pages.length/ctrl.options.pageSize - 1); 
+                   ctrl.currentPage = Math.ceil(ctrl.formData.pages.length/ctrl.options.pageSize - 1);
                 }
             };
-            
+
 
             function createEmptyPage(number){
                 var defaultPageFlow = null;
@@ -85,6 +86,22 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', function ($rootScope)
                 }
                 ctrl.updatePageFlow();
             }
+            $scope.$on('mwForm.questionUpdate', function() {
+                updateQuestionNumbers();
+            });
+
+            function updateQuestionNumbers() {
+                var questionNumber = 1;
+                ctrl.formData.pages.forEach(function(page) {
+                    if (typeof page.elements !== 'undefined') {
+                        page.elements.forEach(function(element) {
+                            if (element.type == 'question') {
+                                element.question.number = questionNumber++;
+                            }
+                        });
+                    }
+                });
+            }
 
             ctrl.addPageAfter=function(page){
                 var index = ctrl.formData.pages.indexOf(page);
@@ -107,6 +124,7 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', function ($rootScope)
                     arrayMove(ctrl.formData.pages, fromIndex, toIndex);
                 }
                 updatePageNumbers();
+                updateQuestionNumbers();
                 $rootScope.$broadcast("mwForm.pageEvents.pageMoved");
 
             };
@@ -118,6 +136,7 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', function ($rootScope)
                     arrayMove(ctrl.formData.pages, fromIndex, toIndex);
                 }
                 updatePageNumbers();
+                updateQuestionNumbers();
                 $rootScope.$broadcast("mwForm.pageEvents.pageMoved");
 
             };
@@ -126,6 +145,7 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', function ($rootScope)
                 var index = ctrl.formData.pages.indexOf(page);
                 ctrl.formData.pages.splice(index,1);
                 updatePageNumbers();
+                updateQuestionNumbers();
                 $rootScope.$broadcast("mwForm.pageEvents.pageRemoved");
                 ctrl.onChangePageSize();
             };

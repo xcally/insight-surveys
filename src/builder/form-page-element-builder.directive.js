@@ -105,9 +105,11 @@ angular.module('mwFormBuilder').directive('mwFormPageElementBuilder', function (
 
             ctrl.moveDown= function(){
                 pageBuilderCtrl.moveDownElement(ctrl.pageElement);
+                scope.$emit('mwForm.questionUpdate');
             };
             ctrl.moveUp= function(){
                 pageBuilderCtrl.moveUpElement(ctrl.pageElement);
+                scope.$emit('mwForm.questionUpdate');
             };
 
             ctrl.options = pageBuilderCtrl.options;

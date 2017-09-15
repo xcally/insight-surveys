@@ -874,9 +874,11 @@ angular.module('mwFormBuilder').directive('mwFormPageElementBuilder', function (
 
             ctrl.moveDown= function(){
                 pageBuilderCtrl.moveDownElement(ctrl.pageElement);
+                scope.$emit('mwForm.questionUpdate');
             };
             ctrl.moveUp= function(){
                 pageBuilderCtrl.moveUpElement(ctrl.pageElement);
+                scope.$emit('mwForm.questionUpdate');
             };
 
             ctrl.options = pageBuilderCtrl.options;
@@ -902,7 +904,7 @@ angular.module('mwFormBuilder').directive('mwFormPageBuilder', ["$rootScope", fu
         templateUrl: 'mw-form-page-builder.html',
         controllerAs: 'ctrl',
         bindToController: true,
-        controller: ["$timeout", "mwFormUuid", "mwFormClone", "mwFormBuilderOptions", function($timeout, mwFormUuid, mwFormClone, mwFormBuilderOptions){
+        controller: ["$scope", "$timeout", "mwFormUuid", "mwFormClone", "mwFormBuilderOptions", function($scope, $timeout, mwFormUuid, mwFormClone, mwFormBuilderOptions){
             var ctrl = this;
             // Put initialization logic inside `$onInit()`
             // to make sure bindings have been initialized.
@@ -921,6 +923,7 @@ angular.module('mwFormBuilder').directive('mwFormPageBuilder', ["$rootScope", fu
                     chosenClass: ".page-element-list",
                     onEnd: function(e, ui) {
                         updateElementsOrderNo();
+                        $scope.$emit('mwForm.questionUpdate');
                     }
                 };
 
@@ -1081,6 +1084,7 @@ angular.module('mwFormBuilder').directive('mwFormPageBuilder', ["$rootScope", fu
             scope.$watch('ctrl.formPage.elements.length', function(newValue, oldValue){
                 if(newValue!=oldValue){
                     ctrl.updateElementsOrderNo();
+                    scope.$emit('mwForm.questionUpdate');
                 }
             });
             ctrl.options = formBuilderCtrl.options;
@@ -1199,7 +1203,7 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', ["$rootScope", functi
         templateUrl: 'mw-form-builder.html',
         controllerAs: 'ctrl',
         bindToController: true,
-        controller: ["mwFormUuid", "MW_QUESTION_TYPES", "mwFormBuilderOptions", function(mwFormUuid, MW_QUESTION_TYPES, mwFormBuilderOptions){
+        controller: ["$scope", "mwFormUuid", "MW_QUESTION_TYPES", "mwFormBuilderOptions", function($scope, mwFormUuid, MW_QUESTION_TYPES, mwFormBuilderOptions){
             var ctrl = this;
             // Put initialization logic inside `$onInit()`
             // to make sure bindings have been initialized.
@@ -1226,14 +1230,15 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', ["$rootScope", functi
 
                     }
                 }
+                updateQuestionNumbers();
             };
-            
+
 
             ctrl.numberOfPages=function(){
-                return Math.ceil(ctrl.formData.pages.length/ctrl.options.pageSize);                
+                return Math.ceil(ctrl.formData.pages.length/ctrl.options.pageSize);
             };
             ctrl.lastPage = function(){
-               ctrl.currentPage = Math.ceil(ctrl.formData.pages.length/ctrl.options.pageSize - 1); 
+               ctrl.currentPage = Math.ceil(ctrl.formData.pages.length/ctrl.options.pageSize - 1);
             };
             ctrl.addPage = function(){
                 ctrl.formData.pages.push(createEmptyPage(ctrl.formData.pages.length+1));
@@ -1242,10 +1247,10 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', ["$rootScope", functi
             };
             ctrl.onChangePageSize = function(){
                 if(ctrl.currentPage > Math.ceil(ctrl.formData.pages.length/ctrl.options.pageSize - 1)){
-                   ctrl.currentPage = Math.ceil(ctrl.formData.pages.length/ctrl.options.pageSize - 1); 
+                   ctrl.currentPage = Math.ceil(ctrl.formData.pages.length/ctrl.options.pageSize - 1);
                 }
             };
-            
+
 
             function createEmptyPage(number){
                 var defaultPageFlow = null;
@@ -1269,6 +1274,22 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', ["$rootScope", functi
                 }
                 ctrl.updatePageFlow();
             }
+            $scope.$on('mwForm.questionUpdate', function() {
+                updateQuestionNumbers();
+            });
+
+            function updateQuestionNumbers() {
+                var questionNumber = 1;
+                ctrl.formData.pages.forEach(function(page) {
+                    if (typeof page.elements !== 'undefined') {
+                        page.elements.forEach(function(element) {
+                            if (element.type == 'question') {
+                                element.question.number = questionNumber++;
+                            }
+                        });
+                    }
+                });
+            }
 
             ctrl.addPageAfter=function(page){
                 var index = ctrl.formData.pages.indexOf(page);
@@ -1291,6 +1312,7 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', ["$rootScope", functi
                     arrayMove(ctrl.formData.pages, fromIndex, toIndex);
                 }
                 updatePageNumbers();
+                updateQuestionNumbers();
                 $rootScope.$broadcast("mwForm.pageEvents.pageMoved");
 
             };
@@ -1302,6 +1324,7 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', ["$rootScope", functi
                     arrayMove(ctrl.formData.pages, fromIndex, toIndex);
                 }
                 updatePageNumbers();
+                updateQuestionNumbers();
                 $rootScope.$broadcast("mwForm.pageEvents.pageMoved");
 
             };
@@ -1310,6 +1333,7 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', ["$rootScope", functi
                 var index = ctrl.formData.pages.indexOf(page);
                 ctrl.formData.pages.splice(index,1);
                 updatePageNumbers();
+                updateQuestionNumbers();
                 $rootScope.$broadcast("mwForm.pageEvents.pageRemoved");
                 ctrl.onChangePageSize();
             };

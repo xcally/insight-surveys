@@ -33,6 +33,7 @@ angular.module('mwFormViewer').directive('mwFormViewer', function ($rootScope) {
                 ctrl.submitStatus='NOT_SUBMITTED';
                 ctrl.formSubmitted=false;
 
+                getQuestionNumbers();
                 sortPagesByNumber();
                 ctrl.pageIdToPage={};
                 ctrl.formData.pages.forEach(function(page){
@@ -159,7 +160,7 @@ angular.module('mwFormViewer').directive('mwFormViewer', function ($rootScope) {
                     $rootScope.$broadcast("mwForm.pageEvents.pageCurrentChanged",{currentPage:ctrl.currentPage});
                 }
             };
-            
+
             ctrl.resetPages = function(){
                 ctrl.prevPages=[];
 
@@ -220,6 +221,19 @@ angular.module('mwFormViewer').directive('mwFormViewer', function ($rootScope) {
                 ctrl.updateNextPageBasedOnAllAnswers();
             };
 
+            function getQuestionNumbers() {
+                var questionNumber = 1;
+                ctrl.formData.pages.forEach(function(page) {
+                    if (typeof page.elements !== 'undefined') {
+                        page.elements.forEach(function(element) {
+                            if (element.type == 'question') {
+                                element.question.number = questionNumber++;
+                            }
+                        });
+                    }
+                });
+            }
+
             function sortPagesByNumber() {
                 ctrl.formData.pages.sort(function(a,b){
                     return a.number - b.number;
@@ -245,13 +259,13 @@ angular.module('mwFormViewer').directive('mwFormViewer', function ($rootScope) {
             if(ctrl.formStatus){
                 ctrl.formStatus.form = ctrl.form;
             }
-            
+
             scope.$on('mwForm.pageEvents.changePage', function(event,data){
                 if(typeof data.page !== "undefined" && data.page < ctrl.formData.pages.length){
                    ctrl.resetPages();
                    for(var i =0; i < data.page;i++){
                         ctrl.prevPages.push(ctrl.formData.pages[i]);
-                   } 
+                   }
                    var currenPge=ctrl.formData.pages[data.page];
                    ctrl.setCurrentPage(currenPge);
                    $rootScope.$broadcast("mwForm.pageEvents.pageCurrentChanged",{currentPage:currenPge});

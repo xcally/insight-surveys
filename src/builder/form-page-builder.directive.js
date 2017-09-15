@@ -15,7 +15,7 @@ angular.module('mwFormBuilder').directive('mwFormPageBuilder', function ($rootSc
         templateUrl: 'mw-form-page-builder.html',
         controllerAs: 'ctrl',
         bindToController: true,
-        controller: function($timeout, mwFormUuid, mwFormClone, mwFormBuilderOptions){
+        controller: function($scope, $timeout, mwFormUuid, mwFormClone, mwFormBuilderOptions){
             var ctrl = this;
             // Put initialization logic inside `$onInit()`
             // to make sure bindings have been initialized.
@@ -34,6 +34,7 @@ angular.module('mwFormBuilder').directive('mwFormPageBuilder', function ($rootSc
                     chosenClass: ".page-element-list",
                     onEnd: function(e, ui) {
                         updateElementsOrderNo();
+                        $scope.$emit('mwForm.questionUpdate');
                     }
                 };
 
@@ -194,6 +195,7 @@ angular.module('mwFormBuilder').directive('mwFormPageBuilder', function ($rootSc
             scope.$watch('ctrl.formPage.elements.length', function(newValue, oldValue){
                 if(newValue!=oldValue){
                     ctrl.updateElementsOrderNo();
+                    scope.$emit('mwForm.questionUpdate');
                 }
             });
             ctrl.options = formBuilderCtrl.options;

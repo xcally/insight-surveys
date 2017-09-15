@@ -1,6 +1,7 @@
 <div class="mw-form-question">
 
     <div class="mw-question-text">
+        {{::ctrl.question.number}}.
         {{::ctrl.print(ctrl.question.text)}} <span ng-if="ctrl.question.required">*</span>
     </div>
 
@@ -51,33 +52,27 @@
             <select ng-options="answer.id as ctrl.print(answer.value) for answer in ::ctrl.question.offeredAnswers" ng-model="ctrl.questionResponse.selectedAnswer" class="form-control"  ng-disabled="ctrl.readOnly" ng-required="ctrl.question.required"></select>
         </div>
         <div ng-switch-when="grid">
-            <div class="table-responsive">
-                <table class="table table-condensed table-striped" border="0" cellpadding="5" cellspacing="0">
-                    <thead>
-                    <tr>
-                        <td></td>
-                        <td ng-repeat="col in ::ctrl.question.grid.cols">
-                            <label>{{::ctrl.print(col.label)}}</label>
-                        </td>
-                    </tr>
-
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="row in ::ctrl.question.grid.rows">
-                        <td>
-                            {{::ctrl.print(row.label)}}
-                        </td>
-                        <td ng-repeat="col in ::ctrl.question.grid.cols" ng-switch="ctrl.question.grid.cellInputType">
-                            <input ng-switch-when="radio"  type="radio" ng-model="ctrl.questionResponse[row.id]" ng-value="col.id" name="answer-for-question-{{row.id}}" ng-required="ctrl.question.required" ng-disabled="ctrl.readOnly">
-                            <input ng-switch-when="checkbox"  type="checkbox" ng-model="ctrl.questionResponse[row.id][col.id]" name="answer-for-question-{{row.id}}-{{col.id}}" ng-required="ctrl.question.required"  ng-disabled="ctrl.readOnly">
-                            <input ng-switch-default  ng-attr-type="{{ctrl.question.grid.cellInputType}}" ng-model="ctrl.questionResponse[row.id][col.id]" name="answer-for-question-{{row.id}}-{{col.id}}" ng-required="ctrl.question.required" ng-disabled="ctrl.readOnly" ng-class="'form-control'">
-                        </td>
-                    </tr>
-                    </tbody>
-
-                </table>
+            <div class="question-grid">
+                <div class="question-grid-header question-grid-row hidden-xs hidden-sm">
+                    <div class="question-grid-heading question-grid-cell"></div>
+                    <div class="question-grid-heading question-grid-cell" ng-repeat="col in ::ctrl.question.grid.cols">
+                        {{::ctrl.print(col.label)}}
+                    </div>
+                </div>
+                <div class="question-grid-block question-grid-row" ng-repeat="row in ::ctrl.question.grid.rows">
+                    <h3 class="question-grid-cell">{{::ctrl.print(row.label)}}</h3>
+                    <div class="question-grid-option question-grid-cell" ng-repeat="col in ::ctrl.question.grid.cols">
+                        <span ng-switch="ctrl.question.grid.cellInputType">
+                            <input ng-switch-when="radio"  type="radio" ng-model="ctrl.questionResponse[row.id]" ng-value="col.id" name="answer-for-question-{{row.id}}" ng-required="ctrl.question.required" ng-disabled="ctrl.readOnly" id="answer-for-question-{{row.id}}-{{col.id}}">
+                            <input ng-switch-when="checkbox"  type="checkbox" ng-model="ctrl.questionResponse[row.id][col.id]" name="answer-for-question-{{row.id}}-{{col.id}}" ng-required="ctrl.question.required"  ng-disabled="ctrl.readOnly" id="answer-for-question-{{row.id}}-{{col.id}}">
+                            <input ng-switch-default  ng-attr-type="{{ctrl.question.grid.cellInputType}}" ng-model="ctrl.questionResponse[row.id][col.id]" name="answer-for-question-{{row.id}}-{{col.id}}" ng-required="ctrl.question.required" ng-disabled="ctrl.readOnly" ng-class="'form-control'" id="answer-for-question-{{row.id}}-{{col.id}}">
+                        </span>
+                        <label class="visible-xs-inline visible-sm-inline" for="answer-for-question-{{row.id}}-{{col.id}}">
+                            {{::ctrl.print(col.label)}}
+                        </label>
+                    </div>
+                </div>
             </div>
-
         </div>
         <div ng-switch-when="division" class="division-list" ng-form="ctrl.divisionForm">
             <div class="form-inline" style="margin-bottom: 5px" ng-repeat="item in ctrl.question.divisionList">
