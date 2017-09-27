@@ -123,13 +123,13 @@
         <div ng-switch-when="star" class="stars">
             <input
                 ng-repeat-start="n in [].constructor(ctrl.question.noStars) track by $index"
-                type="radio" id="{{'star' + (ctrl.question.noStars - $index)}}"
+                type="radio" id="{{'star-' + ctrl.question.id + '-' + (ctrl.question.noStars - $index)}}"
                 ng-model="ctrl.questionResponse.answer"
                 ng-value="{{ctrl.question.noStars - $index}}"
                 ng-required="ctrl.question.required"
             />
             <label
-                for="{{'star' + (ctrl.question.noStars - $index)}}"
+                for="{{'star-' + ctrl.question.id + '-' + (ctrl.question.noStars - $index)}}"
                 ng-show="!ctrl.readOnly"
                 class="star"
             >
