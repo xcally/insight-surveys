@@ -1161,7 +1161,8 @@ angular.module('mwFormBuilder').directive('mwFormConfirmationPageBuilder', funct
         restrict: 'AE',
         scope: {
             formObject: '=',
-            readOnly: '=?'
+            readOnly: '=?',
+            defaultMessage: '=?'
         },
         templateUrl: 'mw-form-confirmation-page-builder.html',
         controllerAs: 'ctrl',
@@ -1181,7 +1182,7 @@ angular.module('mwFormBuilder').directive('mwFormConfirmationPageBuilder', funct
 
         }],
         link: function (scope, ele, attrs){
-
+            console.log(scope.formObject);
         }
     };
 });
