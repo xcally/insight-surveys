@@ -192,6 +192,10 @@ angular.module('mwFormViewer').directive('mwFormViewer', ["$rootScope", function
                 setTimeout(function() {
                     updateQuestionNumbers();
                 }, 0);
+
+                $scope.$watch('ctrl.formData', function(newVal, oldVal){
+                    updateQuestionNumbers();
+                });
             };
 
             ctrl.submitForm = function(){

@@ -45,6 +45,10 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', function ($rootScope)
                 setTimeout(function() {
                     updateQuestionNumbers();
                 }, 0);
+
+                $scope.$watch('ctrl.formData', function(newVal, oldVal){
+                    updateQuestionNumbers();
+                });
             };
 
 
