@@ -42,6 +42,7 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', function ($rootScope)
 
                     }
                 }
+                updateQuestionNumbers();
             };
 
 
@@ -79,6 +80,25 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', function ($rootScope)
                 };
             }
 
+            $scope.$on('mwForm.questionUpdate', function() {
+                updateQuestionNumbers();
+            });
+
+            function updateQuestionNumbers() {
+                var questionNumber = 1;
+                if (typeof ctrl.formData.pages !== 'undefined') {
+                    ctrl.formData.pages.forEach(function(page) {
+                        if (typeof page.elements !== 'undefined') {
+                            page.elements.forEach(function(element) {
+                                if (element.type == 'question') {
+                                    element.question.number = questionNumber++;
+                                }
+                            });
+                        }
+                    });
+                }
+            }
+
             function updatePageNumbers() {
                 for(var i=0; i<ctrl.formData.pages.length; i++){
                     ctrl.formData.pages[i].number = i+1;
@@ -96,6 +116,7 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', function ($rootScope)
                     ctrl.formData.pages.push(newPage);
                 }
                 updatePageNumbers();
+                updateQuestionNumbers();
                 $rootScope.$broadcast("mwForm.pageEvents.pageAdded");
 
             };

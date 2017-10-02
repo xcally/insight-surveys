@@ -26,7 +26,7 @@ angular.module('mwFormBuilder').directive('mwFormConfirmationPageBuilder', funct
 
         },
         link: function (scope, ele, attrs){
-            console.log(scope.formObject);
+
         }
     };
 });
