@@ -149,7 +149,6 @@ angular.module('mwFormViewer').directive('mwFormViewer', ["$rootScope", function
                 ctrl.formSubmitted=false;
 
                 sortPagesByNumber();
-                updateQuestionNumbers();
                 ctrl.pageIdToPage={};
                 ctrl.formData.pages.forEach(function(page){
                     ctrl.pageIdToPage[page.id]=page;
@@ -189,6 +188,10 @@ angular.module('mwFormViewer').directive('mwFormViewer', ["$rootScope", function
 
                     }
                 }
+
+                setTimeout(function() {
+                    updateQuestionNumbers();
+                }, 0);
             };
 
             ctrl.submitForm = function(){
@@ -311,7 +314,7 @@ angular.module('mwFormViewer').directive('mwFormViewer', ["$rootScope", function
                     ctrl.formData.pages.forEach(function(page) {
                         if (typeof page.elements !== 'undefined') {
                             page.elements.forEach(function(element) {
-                                if (element.type == 'question') {
+                                if (element.type == 'question' && typeof element.question !== 'undefined') {
                                     element.question.number = questionNumber++;
                                 }
                             });

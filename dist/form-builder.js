@@ -1231,7 +1231,9 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', ["$rootScope", functi
 
                     }
                 }
-                updateQuestionNumbers();
+                setTimeout(function() {
+                    updateQuestionNumbers();
+                }, 0);
             };
 
 
@@ -1270,7 +1272,9 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', ["$rootScope", functi
             }
 
             $scope.$on('mwForm.questionUpdate', function() {
-                updateQuestionNumbers();
+                setTimeout(function() {
+                    updateQuestionNumbers();
+                }, 0);
             });
 
             function updateQuestionNumbers() {
@@ -1279,7 +1283,7 @@ angular.module('mwFormBuilder').directive('mwFormBuilder', ["$rootScope", functi
                     ctrl.formData.pages.forEach(function(page) {
                         if (typeof page.elements !== 'undefined') {
                             page.elements.forEach(function(element) {
-                                if (element.type == 'question') {
+                                if (element.type == 'question' && typeof element.question !== 'undefined') {
                                     element.question.number = questionNumber++;
                                 }
                             });
