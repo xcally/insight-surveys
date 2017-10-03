@@ -160,8 +160,10 @@
 
         .star {
             cursor: pointer;
-            font-size: 24px;
-            color: #ddd;
+            i {
+                font-size: 24px;
+                color: #ddd;
+            }
         }
         .star:last-of-type {
             padding-left: 0;
