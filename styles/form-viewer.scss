@@ -170,7 +170,9 @@
         input:checked ~ label,
         input:not(:checked) + label:hover,
         input:not(:checked) + label:hover ~ label {
-            color: #FFD700;
+            i {
+                color: #FFD700;
+            }
         }
 
         .stars-end {
