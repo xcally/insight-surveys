@@ -31,7 +31,7 @@
     "bootstrap": "3.x",
     "font-awesome": "4.x",
     "angular-elastic": "2.x",
-    "angular-bootstrap": "^1.2.4",
+    "angular-bootstrap": "2.5",
     "Sortable": "dev"
   },
   "devDependencies": {
