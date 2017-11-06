@@ -117,7 +117,14 @@ angular.module('mwFormUtils.responseUtils', [])
                     };
 
                     if(questionResponse.hasOwnProperty(row.id) && questionResponse[row.id].hasOwnProperty(col.id)){
-                        res.value = questionResponse[row.id][col.id];
+                        var value = questionResponse[row.id][col.id];
+                        if (question.grid.cellInputType == 'date' && value instanceof Date) {
+                            res.value = value.toLocaleDateString();
+                        } else if (question.grid.cellInputType == 'time' && value instanceof Date) {
+                            res.value = value.toLocaleTimeString();
+                        } else {
+                            res.value = value;
+                        }
                     }
 
                     result.push(res);
