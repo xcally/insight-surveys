@@ -96,6 +96,8 @@ angular.module('mwFormBuilder').factory("FormQuestionBuilderId", function(){
                 }
                 if(ctrl.question.type != 'grid'){
                     delete ctrl.question.grid;
+                } else {
+                    ctrl.question.required = false;
                 }
 
                 if(ctrl.question.type != 'priority'){
