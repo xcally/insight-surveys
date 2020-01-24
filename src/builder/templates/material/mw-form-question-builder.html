@@ -13,7 +13,7 @@
                         <mw-label label-for="question-type-{{ctrl.id}}" label-class="col-sm-2 control-label"  label-key="mwForm.question.type"></mw-label>
                         <md-select ng-attr-id="question-type-{{ctrl.id}}" ng-model="ctrl.question.type" ng-change="ctrl.questionTypeChanged()" ng-disabled="ctrl.readOnly" required>
                             <md-option ng-repeat="type in ctrl.questionTypes" ng-value="type">
-                                {{'mwForm.question.types.'+type+'.name'|translate}}
+                                {{'mwForm.question.types.'+type+'.name'|ngtranslate}}
                             </md-option>
                         </md-select>
                     </md-input-container>
@@ -38,12 +38,12 @@
                 <div class="mw-form-question-answers-builder" ng-switch="ctrl.question.type">
                     <div ng-if="ctrl.question.type=='text'">
                         <md-input-container class="md-block">
-                            <input class="form-control" type="text" disabled value="{{'mwForm.question.preview.text'|translate}}">
+                            <input class="form-control" type="text" disabled value="{{'mwForm.question.preview.text'|ngtranslate}}">
                         </md-input-container>
                     </div>
                     <div ng-switch-when="textarea">
                         <md-input-container class="md-block">
-                            <textarea class="form-control" maxlength="150" rows="5" disabled>{{'mwForm.question.preview.textarea'|translate}}</textarea>
+                            <textarea class="form-control" maxlength="150" rows="5" disabled>{{'mwForm.question.preview.textarea'|ngtranslate}}</textarea>
                         </md-input-container>
                     </div>
                     <div ng-switch-when="radio">
@@ -142,7 +142,7 @@
             <div class="question-answers" ng-switch="ctrl.question.type">
                 <div ng-switch-when="text">
                     <md-input-container class="md-block">
-                        <input class="form-control" type="text" disabled value="{{'mwForm.question.preview.text'|translate}}">
+                        <input class="form-control" type="text" disabled value="{{'mwForm.question.preview.text'|ngtranslate}}">
                     </md-input-container>
                 </div>
                 <div ng-switch-when="number"  class="form-inline">
@@ -180,7 +180,7 @@
 
                 <div ng-switch-when="textarea">
                     <md-input-container class="md-block">
-                        <textarea class="form-control" type="text" disabled>{{'mwForm.question.preview.textarea'|translate}}</textarea>
+                        <textarea class="form-control" type="text" disabled>{{'mwForm.question.preview.textarea'|ngtranslate}}</textarea>
                     </md-input-container>
                 </div>
                 <div ng-switch-when="radio">

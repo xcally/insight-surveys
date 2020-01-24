@@ -12,16 +12,16 @@
                 <input wd-focus-me="ctrl.isNewAnswer[answer.id]" type="text" ng-model="answer.value" ng-keypress="ctrl.keyPressedOnInput($event,answer)" required class="form-control offered-answer-value " ng-readonly="ctrl.readOnly">
             </md-input-container>
             <md-button role="button" class="md-raised md-icon-button remove-item-button" ng-click="ctrl.removeOfferedAnswer(answer)" ng-if="!ctrl.readOnly"
-                    ng-attr-title="{{'mwForm.buttons.remove' | translate}}">
+                    ng-attr-title="{{'mwForm.buttons.remove' | ngtranslate}}">
                 <md-tooltip md-direction="top">
-                    {{'mwForm.buttons.remove' | translate}}
+                    {{'mwForm.buttons.remove' | ngtranslate}}
                 </md-tooltip>
                 <i class="fa fa-times"></i>
             </md-button>
             <span ng-if="ctrl.question.pageFlowModifier" class="form-inline">
                   <md-input-container >
                      <md-select ng-model="answer.pageFlow" ng-disabled="ctrl.readOnly">
-                       <md-option ng-value="pageFlow" ng-repeat="pageFlow in ctrl.possiblePageFlow">{{ pageFlow.label|translate:pageFlow }}</md-option>
+                       <md-option ng-value="pageFlow" ng-repeat="pageFlow in ctrl.possiblePageFlow">{{ pageFlow.label|ngtranslate:pageFlow }}</md-option>
                      </md-select>
                  </md-input-container>
             </span>
@@ -38,7 +38,7 @@
         </div>
         <span ng-click="ctrl.addNewOfferedAnswer()" role="button">
             <md-input-container>
-                <input type="text" class="form-control  offered-answer-value" value="{{'mwForm.question.buttons.addOption'|translate}}">
+                <input type="text" class="form-control  offered-answer-value" value="{{'mwForm.question.buttons.addOption'|ngtranslate}}">
             </md-input-container>
         </span>
         <span class="add-custom-answer"  ng-if="!ctrl.disableOtherAnswer && !ctrl.question.otherAnswer">
@@ -56,12 +56,12 @@
         </div>
         <label translate="mwForm.question.otherLabel">Inna: </label>
         <md-input-container>
-            <input  type="text" value="{{'mwForm.question.userAnswer'|translate}}"  class="form-control offered-answer-value " readonly>
+            <input  type="text" value="{{'mwForm.question.userAnswer'|ngtranslate}}"  class="form-control offered-answer-value " readonly>
         </md-input-container>
         <md-button type="button" role="button" class="md-raised md-icon-button remove-item-button" ng-click="ctrl.removeCustomAnswer()" ng-if="!ctrl.readOnly"
-                ng-attr-title="{{'mwForm.buttons.remove' | translate}}">
+                ng-attr-title="{{'mwForm.buttons.remove' | ngtranslate}}">
             <md-tooltip md-direction="top">
-                {{'mwForm.buttons.remove' | translate}}
+                {{'mwForm.buttons.remove' | ngtranslate}}
             </md-tooltip>
             <i class="fa fa-times"></i>
         </md-button>

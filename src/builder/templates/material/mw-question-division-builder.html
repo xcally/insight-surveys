@@ -28,9 +28,9 @@
                            ng-readonly="ctrl.readOnly">
                 </md-input-container>
                 <md-button role="button" class="md-raised md-icon-button remove-item-button" ng-click="ctrl.removeItem(item)" ng-if="!ctrl.readOnly"
-                           ng-attr-title="{{'mwForm.buttons.remove' | translate}}">
+                           ng-attr-title="{{'mwForm.buttons.remove' | ngtranslate}}">
                     <md-tooltip md-direction="top">
-                        {{'mwForm.buttons.remove' | translate}}
+                        {{'mwForm.buttons.remove' | ngtranslate}}
                     </md-tooltip>
                     <i class="fa fa-times"></i>
                 </md-button>
@@ -41,7 +41,7 @@
             <div class="drag-handle"></div>
             <md-input-container>
                 <span ng-click="ctrl.addNewItem()" role="button" ng-if="!ctrl.readOnly">
-                    <input type="text" required class="form-control" value="{{'mwForm.question.priority.clickToAddItem'|translate}}">
+                    <input type="text" required class="form-control" value="{{'mwForm.question.priority.clickToAddItem'|ngtranslate}}">
                 </span>
             </md-input-container>
         </div>

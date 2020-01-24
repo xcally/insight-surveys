@@ -7,12 +7,12 @@
     <div class="mw-question-answers" ng-switch="ctrl.question.type">
         <div ng-switch-when="text">
             <md-input-container class="md-block" md-no-float>
-                <input class="form-control" type="text" ng-model="ctrl.questionResponse.answer"  placeholder="{{'mwForm.question.preview.text'|translate}}" ng-required="ctrl.question.required" ng-readonly="ctrl.readOnly">
+                <input class="form-control" type="text" ng-model="ctrl.questionResponse.answer"  placeholder="{{'mwForm.question.preview.text'|ngtranslate}}" ng-required="ctrl.question.required" ng-readonly="ctrl.readOnly">
             </md-input-container>
         </div>
         <div ng-switch-when="textarea">
             <md-input-container class="md-block" md-no-float>
-                <textarea msd-elastic class="form-control" ng-model="ctrl.questionResponse.answer"  placeholder="{{'mwForm.question.preview.textarea'|translate}}" ng-required="ctrl.question.required" ng-readonly="ctrl.readOnly"></textarea>
+                <textarea msd-elastic class="form-control" ng-model="ctrl.questionResponse.answer"  placeholder="{{'mwForm.question.preview.textarea'|ngtranslate}}" ng-required="ctrl.question.required" ng-readonly="ctrl.readOnly"></textarea>
             </md-input-container>
         </div>
         <div ng-switch-when="radio">

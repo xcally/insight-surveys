@@ -3,7 +3,7 @@
         <div class="form-group">
             <mw-label label-for="mw-grid-cell-input-type-{{ctrl.question.id}}" label-class="col-sm-2 control-label"  label-key="mwForm.question.grid.cellInputType"></mw-label>
             <div class="col-sm-10 form-inline">
-                <select ng-attr-id="mw-grid-cell-input-type-{{ctrl.question.id}}" ng-model="ctrl.question.grid.cellInputType"  ng-options="'mwForm.question.grid.cellInputTypes.'+opt|translate for opt in ctrl.cellInputTypes"  class="form-control" ng-disabled="ctrl.readOnly" required></select>
+                <select ng-attr-id="mw-grid-cell-input-type-{{ctrl.question.id}}" ng-model="ctrl.question.grid.cellInputType"  ng-options="'mwForm.question.grid.cellInputTypes.'+opt|ngtranslate for opt in ctrl.cellInputTypes"  class="form-control" ng-disabled="ctrl.readOnly" required></select>
             </div>
         </div>
     </div>
@@ -27,7 +27,7 @@
                 <div class="drag-handle">
                 </div>
                 <span ng-click="ctrl.addNewRow()" role="button">
-                    <input type="text"  required class="form-control" value="{{'mwForm.question.grid.clickToAddRow'|translate}}">
+                    <input type="text"  required class="form-control" value="{{'mwForm.question.grid.clickToAddRow'|ngtranslate}}">
                 </span>
             </div>
         </div>
@@ -57,7 +57,7 @@
                 <div class="drag-handle">
                 </div>
                 <span ng-click="ctrl.addNewCol()" role="button" >
-                    <input type="text"  required class="form-control" value="{{'mwForm.question.grid.clickToAddColumn'|translate}}">
+                    <input type="text"  required class="form-control" value="{{'mwForm.question.grid.clickToAddColumn'|ngtranslate}}">
                 </span>
             </div>
         </div>

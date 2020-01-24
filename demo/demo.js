@@ -1,12 +1,5 @@
-angular.module('app', ['ui.bootstrap', 'mwFormBuilder', 'mwFormViewer', 'mwFormUtils', 'pascalprecht.translate', 'monospaced.elastic'])
-    .config(function($translateProvider){
-        $translateProvider.useStaticFilesLoader({
-            prefix: '../dist/i18n/',
-            suffix: '/angular-surveys.json'
-        });
-        $translateProvider.preferredLanguage('en');
-    })
-    .controller('DemoController', function($q,$http, $translate, mwFormResponseUtils, $rootScope) {
+angular.module('app', ['ui.bootstrap', 'mwFormBuilder', 'mwFormViewer', 'mwFormUtils', 'monospaced.elastic'])
+    .controller('DemoController', function($q,$http, mwFormResponseUtils, $rootScope) {
 
         var ctrl = this;
         ctrl.mergeFormWithResponse = true;
@@ -46,7 +39,7 @@ angular.module('app', ['ui.bootstrap', 'mwFormBuilder', 'mwFormViewer', 'mwFormU
             .then(function(res){
                 ctrl.responseData = res.data;
             });
-            
+
         $http.get('template-data.json')
             .then(function(res){
                 ctrl.templateData = res.data;
@@ -95,10 +88,6 @@ angular.module('app', ['ui.bootstrap', 'mwFormBuilder', 'mwFormViewer', 'mwFormU
             if(ctrl.formBuilder.reset){
                 ctrl.formBuilder.reset();
             }
-        };
-
-        ctrl.changeLanguage = function (languageKey) {
-            $translate.use(languageKey);
         };
 
         ctrl.getMerged=function(){
