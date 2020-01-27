@@ -7,7 +7,7 @@
                     <mw-label label-for="mw-grid-cell-input-type-{{ctrl.question.id}}" label-class="col-sm-2 control-label"  label-key="mwForm.question.grid.cellInputType"></mw-label>
                     <md-select ng-attr-id="mw-grid-cell-input-type-{{ctrl.question.id}}" ng-model="ctrl.question.grid.cellInputType"  ng-disabled="ctrl.readOnly" required>
                         <md-option ng-repeat="opt in ctrl.cellInputTypes" ng-value="opt">
-                            {{'mwForm.question.grid.cellInputTypes.'+opt|translate}}
+                            {{'mwForm.question.grid.cellInputTypes.'+opt|ngtranslate}}
                         </md-option>
                     </md-select>
                 </md-input-container>
@@ -31,9 +31,9 @@
                         <input ng-attr-id="mw-grid-row-{{row.id}}-label" wd-focus-me="ctrl.isNewInput[row.id]" type="text" ng-model="row.label" ng-keypress="ctrl.keyPressedOnInput($event,row, 'row')" required class="form-control mw-item-label-value "  ng-readonly="ctrl.readOnly">
                     </md-input-container>
                     <md-button role="button" class="md-raised md-icon-button remove-item-button" ng-click="ctrl.removeRow(row)"  ng-if="!ctrl.readOnly"
-                               ng-attr-title="{{'mwForm.buttons.remove' | translate}}">
+                               ng-attr-title="{{'mwForm.buttons.remove' | ngtranslate}}">
                         <md-tooltip md-direction="top">
-                            {{'mwForm.buttons.remove' | translate}}
+                            {{'mwForm.buttons.remove' | ngtranslate}}
                         </md-tooltip>
                         <i class="fa fa-times"></i>
                     </md-button>
@@ -52,7 +52,7 @@
                 </div>
                 <span ng-click="ctrl.addNewRow()" role="button">
                     <md-input-container>
-                        <input type="text"  required class="form-control" value="{{'mwForm.question.grid.clickToAddRow'|translate}}">
+                        <input type="text"  required class="form-control" value="{{'mwForm.question.grid.clickToAddRow'|ngtranslate}}">
                     </md-input-container>
 
                 </span>
@@ -80,9 +80,9 @@
                     <md-input-container>
                         <input ng-attr-id="mw-grid-col-{{col.id}}-label" wd-focus-me="ctrl.isNewInput[col.id]" type="text" ng-model="col.label" ng-keypress="ctrl.keyPressedOnInput($event,col, 'col')" required class="form-control mw-item-label-value " ng-readonly="ctrl.readOnly">                    </md-input-container>
                     <md-button role="button" class="md-raised md-icon-button remove-item-button" ng-click="ctrl.removeCol(col)"  ng-if="!ctrl.readOnly"
-                               ng-attr-title="{{'mwForm.buttons.remove' | translate}}">
+                               ng-attr-title="{{'mwForm.buttons.remove' | ngtranslate}}">
                         <md-tooltip md-direction="top">
-                            {{'mwForm.buttons.remove' | translate}}
+                            {{'mwForm.buttons.remove' | ngtranslate}}
                         </md-tooltip>
                         <i class="fa fa-times"></i>
                     </md-button>
@@ -100,7 +100,7 @@
                 </div>
                 <span ng-click="ctrl.addNewCol()" role="button">
                     <md-input-container>
-                        <input type="text"  required class="form-control" value="{{'mwForm.question.grid.clickToAddColumn'|translate}}">
+                        <input type="text"  required class="form-control" value="{{'mwForm.question.grid.clickToAddColumn'|ngtranslate}}">
                     </md-input-container>
 
                 </span>

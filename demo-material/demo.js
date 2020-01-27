@@ -1,11 +1,4 @@
-angular.module('app', ['ngMaterial', 'mwFormBuilder', 'mwFormViewer', 'mwFormUtils', 'pascalprecht.translate', 'monospaced.elastic'])
-    .config(function($translateProvider){
-        $translateProvider.useStaticFilesLoader({
-            prefix: '../dist/i18n/',
-            suffix: '/angular-surveys.json'
-        });
-        $translateProvider.preferredLanguage('en');
-    })
+angular.module('app', ['ngMaterial', 'mwFormBuilder', 'mwFormViewer', 'mwFormUtils', 'monospaced.elastic'])
     .controller('DemoController', function($q,$http, $translate, mwFormResponseUtils) {
 
         var ctrl = this;
@@ -39,7 +32,7 @@ angular.module('app', ['ngMaterial', 'mwFormBuilder', 'mwFormViewer', 'mwFormUti
             ],
             elementTypes: ['question', 'image'],
             pagesSize: [1,10,25,50,100],
-            pageSize: 1      
+            pageSize: 1
                  */
         };
         ctrl.formStatus= {};
@@ -48,7 +41,7 @@ angular.module('app', ['ngMaterial', 'mwFormBuilder', 'mwFormViewer', 'mwFormUti
             .then(function(res){
                 ctrl.responseData = res.data;
             });
-            
+
         $http.get('template-data.json')
             .then(function(res){
                 ctrl.templateData = res.data;

@@ -12,7 +12,7 @@
                 <div class="form-group mw-question-type">
                     <mw-label label-for="question-type-{{ctrl.id}}" label-class="col-sm-2 control-label"  label-key="mwForm.question.type"></mw-label>
                     <div class="col-sm-10 form-inline">
-                        <select ng-attr-id="question-type-{{ctrl.id}}" ng-options="'mwForm.question.types.'+type+'.name'|translate for type in ctrl.questionTypes" ng-model="ctrl.question.type" ng-change="ctrl.questionTypeChanged()" class="form-control" ng-disabled="ctrl.readOnly" required></select>
+                        <select ng-attr-id="question-type-{{ctrl.id}}" ng-options="'mwForm.question.types.'+type+'.name'|ngtranslate for type in ctrl.questionTypes" ng-model="ctrl.question.type" ng-change="ctrl.questionTypeChanged()" class="form-control" ng-disabled="ctrl.readOnly" required></select>
 
                         <div class="checkbox" ng-if="ctrl.question.type=='radio' || ctrl.question.type=='select'">
                             <label>
@@ -33,10 +33,10 @@
             <div class="row" ng-if="ctrl.question.type">
                 <div class="mw-form-question-answers-builder col-sm-10 col-sm-offset-2  col-md-8" ng-switch="ctrl.question.type">
                     <div ng-if="ctrl.question.type=='text'">
-                        <input class="form-control" type="text" disabled value="{{'mwForm.question.preview.text'|translate}}">
+                        <input class="form-control" type="text" disabled value="{{'mwForm.question.preview.text'|ngtranslate}}">
                     </div>
                     <div ng-switch-when="textarea">
-                        <textarea class="form-control" disabled>{{'mwForm.question.preview.textarea'|translate}}</textarea>
+                        <textarea class="form-control" disabled>{{'mwForm.question.preview.textarea'|ngtranslate}}</textarea>
                     </div>
                     <div ng-switch-when="radio">
                         <mw-question-offered-answer-list-builder question="ctrl.question" form-object="ctrl.formObject" read-only="ctrl.readOnly"></mw-question-offered-answer-list-builder>
@@ -120,7 +120,7 @@
             </div>
             <div class="question-answers" ng-switch="ctrl.question.type">
                 <div ng-switch-when="text">
-                    <input class="form-control" type="text" disabled value="{{'mwForm.question.preview.text'|translate}}">
+                    <input class="form-control" type="text" disabled value="{{'mwForm.question.preview.text'|ngtranslate}}">
                 </div>
                 <div ng-switch-when="number"  class="form-inline">
                     <input class="form-control" type="number" disabled>
@@ -146,7 +146,7 @@
                 </div>
 
                 <div ng-switch-when="textarea">
-                    <textarea class="form-control" type="text" disabled>{{'mwForm.question.preview.textarea'|translate}}</textarea>
+                    <textarea class="form-control" type="text" disabled>{{'mwForm.question.preview.textarea'|ngtranslate}}</textarea>
                 </div>
                 <div ng-switch-when="radio">
                     <div class="radio" ng-repeat="answer in ctrl.question.offeredAnswers">
