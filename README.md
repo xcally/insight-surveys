@@ -1,9 +1,15 @@
 # insight-surveys
+
 Angular.js survey / form builder inspired by Google Forms
-Fork of http://mwasiluk.github.io/angular-surveys
+Fork of https://github.com/fitronics/insight-surveys (v1.1.9)
+which is a fork of http://mwasiluk.github.io/angular-surveys
 
-## Bower
+This is a legacy-support version published on npm only
 
-You can install this package through `Bower` :
+## NPM
 
-    bower install insight-surveys --save
+You can install this package through `npm` :
+
+```bash
+npm i @xenialab/insight-surveys
+```
