@@ -59,5 +59,21 @@
   "bugs": {
     "url": "https://github.com/b-my/insight-surveys/issues"
   },
-  "homepage": "https://github.com/b-my/insight-surveys#readme"
+  "homepage": "https://github.com/b-my/insight-surveys#readme",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "angular": "^1.8.2",
+    "angular-animate": "^1.8.2",
+    "angular-aria": "^1.8.2",
+    "angular-elastic": "^2.5.1",
+    "angular-material": "^1.1.26",
+    "angular-sanitize": "^1.8.2",
+    "angular-translate": "^2.18.4",
+    "angular-translate-loader-static-files": "^2.18.4",
+    "angular-ui-bootstrap": "^2.5.6",
+    "angular-ui-sortable": "^0.19.0",
+    "bootstrap": "^3.4.1",
+    "bootstrap-sass": "^3.4.1",
+    "sortablejs": "^1.13.0"
+  }
 }

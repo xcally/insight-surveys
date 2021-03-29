@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>angular-surveys demo</title>
-        <link rel="stylesheet" href="../bower_components/angular/angular-csp.css">
-        <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../dist/form-builder-bootstrap.min.css">
-        <link rel="stylesheet" href="../dist/form-viewer.min.css">
-    </head>
-    <body ng-controller="DemoController as ctrl" ng-cloak>
-        <div class="demo-container" ng-if="ctrl.formData">
-            <mw-form-viewer
-              form-data="ctrl.formData"
-              template-data="ctrl.templateData"
-              form-status="ctrl.formStatus"
-              options="ctrl.formOptions"
-              api="ctrl.formViewer"
-              response-data="ctrl.responseData"
-              read-only="ctrl.viewerReadOnly"
-              on-submit="ctrl.saveResponse()"
-            ></mw-form-viewer>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>angular-surveys demo</title>
+    <link rel="stylesheet" href="../node_modules/angular/angular-csp.css" />
+    <link
+      rel="stylesheet"
+      href="../node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../dist/form-builder-bootstrap.min.css" />
+    <link rel="stylesheet" href="../dist/form-viewer.min.css" />
+  </head>
+  <body ng-controller="DemoController as ctrl" ng-cloak>
+    <div class="demo-container" ng-if="ctrl.formData">
+      <mw-form-viewer
+        form-data="ctrl.formData"
+        template-data="ctrl.templateData"
+        form-status="ctrl.formStatus"
+        options="ctrl.formOptions"
+        api="ctrl.formViewer"
+        response-data="ctrl.responseData"
+        read-only="ctrl.viewerReadOnly"
+        on-submit="ctrl.saveResponse()"
+      ></mw-form-viewer>
+    </div>
 
-        <script src="../bower_components/angular/angular.js"></script>
-        <script src="../bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-        <script src="../bower_components/angular-translate/angular-translate.min.js"></script>
-        <script src="../bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
-        <script src="../bower_components/angular-elastic/elastic.js"></script>
-        <script src="../bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-        <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-        <script src="../bower_components/Sortable/Sortable.min.js"></script>
-        <script src="../vendor/angular-legacy-sortable.js"></script>
-        <script src="../dist/form-viewer.js"></script>
-        <script src="../dist/form-viewer-bootstrap-tpls.min.js"></script>
-        <script src="demo-viewer.js"></script>
-    </body>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="../node_modules/angular-translate/dist/angular-translate.min.js"></script>
+    <script src="../node_modules/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+    <script src="../node_modules/angular-elastic/elastic.js"></script>
+    <script src="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+    <script src="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <script src="../node_modules/sortablejs/Sortable.min.js"></script>
+    <script src="../vendor/angular-legacy-sortable.js"></script>
+    <script src="../dist/form-viewer.js"></script>
+    <script src="../dist/form-viewer-bootstrap-tpls.min.js"></script>
+    <script src="demo-viewer.js"></script>
+  </body>
 </html>
